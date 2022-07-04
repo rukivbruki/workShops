@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://unpkg.com/@babel/standalone/babel.min.js"
+      rel="preload"
+      as="script"
+    />
+    <link
+      href="https://unpkg.com/@babel/polyfill/dist/polyfill.min.js"
+      rel="preload"
+      as="script"
+    />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>babelStandalone</title>
+  </head>
+  <body>
+    <div id="output"></div>
+    <script src="https://unpkg.com/@babel/polyfill/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script async type="text/babel" data-presets="env,stage-3">
+      const referenceObj = new WeakRef({ name: 'John Doe' });
+      const obj = referenceObj.deref();
+      const getMessage = () => obj.name;
+      document.getElementById('output').innerHTML = getMessage();
+    </script>
+  </body>
+</html>
